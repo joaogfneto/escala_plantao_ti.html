@@ -76,10 +76,11 @@
         { nome: "João", tel: "99145-8550", zap: "5581991458550" }
     ];
 
+    const dataInicio = new Date(2025, 3, 19); // 19/04/2025 (abril = 3)
     const hoje = new Date();
-    let data = new Date(2025, 3, 19); // 19/04/2025 (abril = 3)
+    let data = new Date(dataInicio);
 
-    // Avança até o próximo sábado atual ou futuro
+    // Avança para o primeiro sábado atual ou futuro
     while (data < hoje) {
         data.setDate(data.getDate() + 7);
     }
@@ -87,9 +88,10 @@
     const corpoTabela = document.getElementById("tabela-plantao");
 
     for (let i = 0; i < 17; i++) {
-        const analista = analistas[i % analistas.length];
-        const linha = document.createElement("tr");
+        const semanasPassadas = Math.floor((data - dataInicio) / (7 * 24 * 60 * 60 * 1000));
+        const analista = analistas[semanasPassadas % analistas.length];
 
+        const linha = document.createElement("tr");
         const dataTexto = data.toLocaleDateString('pt-BR');
 
         linha.innerHTML = `
