@@ -76,15 +76,7 @@
         { nome: "João", tel: "99145-8550", zap: "5581991458550" }
     ];
 
-    function proximoSabado(dataBase) {
-        const dia = dataBase.getDay();
-        const distancia = (6 - dia + 7) % 7;
-        dataBase.setDate(dataBase.getDate() + distancia);
-        return dataBase;
-    }
-
-    const hoje = new Date();
-    let data = proximoSabado(new Date(hoje));
+    let data = new Date("2025-04-19"); // fixado para iniciar em 19/04/2025
     const corpoTabela = document.getElementById("tabela-plantao");
 
     for (let i = 0; i < 17; i++) {
