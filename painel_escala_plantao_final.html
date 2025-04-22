@@ -76,7 +76,8 @@
         { nome: "João", tel: "99145-8550", zap: "5581991458550" }
     ];
 
-    let data = new Date("2025-04-19"); // fixado para iniciar em 19/04/2025
+    let data = new Date(2025, 3, 19); // Abril é mês 3 (zero-based) — 19/04/2025
+
     const corpoTabela = document.getElementById("tabela-plantao");
 
     for (let i = 0; i < 17; i++) {
